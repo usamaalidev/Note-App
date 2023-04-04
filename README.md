@@ -1,9 +1,9 @@
 # Note-App
 
-- [] Login Page
+- [ ] Login Page
 - [x] Register Page
-- [] Logout functionality
-- [] Display User Notes
-- [] Add Note
-- [] Delete Note
-- [] Update Page
+- [ ] Logout functionality
+- [x] Display User Notes
+- [x] Add Note
+- [ ] Delete Note
+- [ ] Update Page
