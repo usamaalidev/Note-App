@@ -22,7 +22,8 @@
   transition: background-color 350ms;
 }
 
-.nav ul li a {
+.nav ul li a,
+.nav ul li span {
   display: inline-block;
   width: 100%;
   padding: 5px 10px;

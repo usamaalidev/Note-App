@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Sidebar.module.css";
 import { Link, NavLink } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext.jsx";
 
 export default function Sidebar() {
+  const { logout } = useContext(UserContext);
   return (
     <>
       <nav className={`${style.nav}`}>
@@ -21,9 +23,9 @@ export default function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/logOut">
+            <span onClick={logout} className="pointer">
               <i className="bi bi-box-arrow-left me-2"></i>Log out
-            </NavLink>
+            </span>
           </li>
         </ul>
       </nav>

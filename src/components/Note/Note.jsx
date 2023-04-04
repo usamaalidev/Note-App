@@ -1,34 +1,9 @@
 import React, { useContext } from "react";
 import style from "./Note.module.css";
-import axios from "axios";
 import { UserContext } from "../../Context/UserContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { deleteNote } from "../../utils/Note.js";
 
 export default function Note({ noteInfo }) {
-  const { token } = useContext(UserContext);
-
-  const navigate = useNavigate();
-
-  async function deleteNote(e) {
-    const deletedNoteInfo = {
-      NoteID: e.target.closest(".note").dataset.id,
-      token,
-    };
-
-    console.log(deletedNoteInfo);
-
-    let { data } = await axios.delete(
-      "https://sticky-note-fe.vercel.app/deleteNote",
-      { data: deletedNoteInfo }
-    );
-
-    console.log(data);
-
-    if (data.message == "deleted") {
-      console.log("success");
-      navigate("/");
-    }
-  }
   return (
     <>
       <div

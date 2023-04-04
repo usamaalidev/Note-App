@@ -2,13 +2,37 @@ import React from "react";
 import { createContext, useState } from "react";
 
 export const UserContext = createContext(0);
-console.log(UserContext);
 
 export default function UserProvider({ children }) {
-  const [token, setToken] = useState(null);
-  const [userInfo, setUserInfo] = useState(null);
+  const savedToken =
+    document.cookie
+      .split(";")
+      .filter((str) => str.trim().includes("token"))[0]
+      ?.split("=")[1] || null;
+
+  const savedUserData =
+    document.cookie
+      .split(";")
+      .filter((str) => str.trim().includes("userData"))[0]
+      ?.split("=")[1] || null;
+
+  const [token, setToken] = useState(savedToken);
+  const [userInfo, setUserInfo] = useState(JSON.parse(savedUserData));
+
+  async function logout() {
+    document.cookie.split(";").forEach(function (c) {
+      document.cookie = c
+        .replace(/^ +/, "")
+        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+    setToken(null);
+    setUserInfo(null);
+  }
+
   return (
-    <UserContext.Provider value={{ userInfo, setUserInfo, token, setToken }}>
+    <UserContext.Provider
+      value={{ userInfo, setUserInfo, token, setToken, logout }}
+    >
       {children}
     </UserContext.Provider>
   );

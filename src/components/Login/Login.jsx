@@ -15,6 +15,7 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState(false);
 
   let navigate = useNavigate();
+
   let validationSchema = Yup.object({
     email: Yup.string()
       .required("*email is required")
@@ -43,13 +44,14 @@ export default function Login() {
       values
     );
 
-    console.log(data);
-
     setIsLoading(false);
 
     if (data.message === "success") {
       await setToken(data.token);
       await setUserInfo(data.user);
+      document.cookie = `token=${data.token}`;
+      document.cookie = `userData=${JSON.stringify(data.user)}`;
+
       navigate("/");
     }
 
@@ -62,11 +64,10 @@ export default function Login() {
       : setPasswordError(false);
   }
 
-  // !ERROR HERE ==> this cause an infinite loop
-  // useEffect(() => {
-  //   console.log({ token });
-  //   navigate("/");
-  // }, [token]);
+  useEffect(() => {
+    if (token == null) return;
+    navigate("/");
+  }, [token]);
 
   return (
     <section className="min-vh-100 d-flex align-items-center justify-content-center">

@@ -4,7 +4,7 @@
 
 ### Project Structure
 
-- [ ] Editing Project Structure.
+- [x] Editing Project Structure.
 - [ ] seperate logic outside Components.
 
 ### Sidebar
@@ -13,12 +13,10 @@
 
 ### Login Page
 
-- [ ] Fix Error of clicking twice to login.
-- [ ] using cookies to store token to fix refresh bug.
-
+- [x] Fix Error of clicking twice to login.
+- [x] using cookies to store token to fix refresh bug.
 - [x] Register Page.
-
-- [ ] Logout functionality.
+- [x] Logout functionality.
 
 ### Home Page
 
