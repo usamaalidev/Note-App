@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Zanabazar+Square&display=swap");
+:root {
+  --violet-900: #2f2569;
+  --violet-800: #913bd3;
+  --violet-700: #9a53d2;
+  --violet-200: #8388a7;
+  --violet-100: #ecd8fe;
+  --orange-900: #bf6040;
+  --orange-100: #fee5dd;
+  --green-900: #349960;
+  --green-100: #d8efe2;
+  --white-900: #ffffff;
+  --white-800: #f7f8fc;
+  --white-700: #e5e8f1;
+}
+
+body {
+  font-family: "Noto Sans Zanabazar Square", sans-serif;
+  background-color: var(--white-800);
+  color: var(--violet-900);
+}
+
+/* ^========> Global Styles */
+::selection {
+  background-color: var(--violet-100);
+  color: var(--violet-900);
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-main {
+  --bs-btn-color: var(--white-900);
+  --bs-btn-bg: var(--violet-700);
+  --bs-btn-border-color: var(--violet-800);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--violet-800);
+}
+
+.font-Montserrat {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.form-control:focus {
+  border-color: var(--violet-800);
+  box-shadow: none;
+}
+
+.bg-main {
+  background-color: var(--violet-800);
+}
+
+.text-main {
+  color: var(--violet-800);
+}
+
+.error {
+  color: #e21818;
+  font-size: 14px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+.heading {
+  padding: 6px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.heading::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--violet-700);
+  bottom: 0;
+  left: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}

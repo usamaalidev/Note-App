@@ -1,0 +1,14 @@
+:root {
+  --layout: 12;
+}
+
+.sidebar {
+  --column: 2;
+  width: calc(100% * var(--column) / 12);
+}
+
+.content {
+  --column: 10;
+  width: calc(100% * var(--column) / 12);
+  padding: 15px;
+}
