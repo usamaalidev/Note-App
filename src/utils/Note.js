@@ -6,17 +6,15 @@ const token =
     .filter((str) => str.trim().includes("token"))[0]
     ?.split("=")[1] || null;
 
-const userInfo = JSON.parse(
-  document.cookie
-    .split(";")
-    .filter((str) => str.trim().includes("userData"))[0]
-    ?.split("=")[1]
-);
+const userInfo = document.cookie
+  .split(";")
+  .filter((str) => str.trim().includes("userData"))[0]
+  ?.split("=")[1];
 
 export async function getNotes(updater) {
   const userDetails = {
     token,
-    userID: userInfo._id,
+    userID: JSON.parse(userInfo)._id,
   };
 
   let { data } = await axios.post(
