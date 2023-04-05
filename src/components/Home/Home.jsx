@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import style from "./Home.module.css";
 import Note from "../Note/Note.jsx";
-import { UserContext } from "../../Context/UserContext.jsx";
 import { getNotes } from "../../utils/Note.js";
+import { NoteContext } from "../../Context/NoteContext.jsx";
 
 export default function Home({}) {
-  const [notes, setNotes] = useState([]);
+  const { notes, setNotes } = useContext(NoteContext);
 
   useEffect(() => {
     getNotes(setNotes);

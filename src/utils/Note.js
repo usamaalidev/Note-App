@@ -31,23 +31,39 @@ export async function getNotes(updater) {
   }
 }
 
-export async function deleteNote(e) {
+export async function deleteNote(e, updater) {
   const deletedNoteInfo = {
     NoteID: e.target.closest(".note").dataset.id,
     token,
   };
-
-  console.log({ deletedNoteInfo });
 
   let { data } = await axios.delete(
     "https://sticky-note-fe.vercel.app/deleteNote",
     { data: deletedNoteInfo }
   );
 
-  console.log({ deleted_data: data });
-
   if (data.message == "deleted") {
     console.log("success");
-    getNotes();
+    getNotes(updater);
+  }
+}
+
+export async function updateNote(e, title, desc, updater) {
+  const updatedDetails = {
+    title,
+    desc,
+    token,
+    NoteID: e.target.closest(".note").dataset.id,
+  };
+  let { data } = await axios.put(
+    "https://sticky-note-fe.vercel.app/updateNote",
+    updatedDetails
+  );
+
+  console.log(data);
+
+  if (data.message == "updated") {
+    console.log("success");
+    getNotes(updater);
   }
 }

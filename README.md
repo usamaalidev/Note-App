@@ -5,7 +5,7 @@
 ### Project Structure
 
 - [x] Editing Project Structure.
-- [ ] seperate logic outside Components.
+- [x] seperate logic outside Components.
 
 ### Sidebar
 
@@ -24,12 +24,13 @@
 
 ### Add Note
 
-- [ ] use Sweat Alert when added successfully.
+- [x] use Sweat Alert when added successfully.
 - [ ] make description of note to be at most 3 lines.
+- [ ] Provide away to go back if someone click add by mistake or just he change his mind.
 
 ### Delete Note
 
-- [ ] Delete at once without need to refresh.
-- [ ] Show alert before Deleting.
+- [x] Delete at once without need to refresh.
+- [x] Show alert before Deleting.
 
 ### Update Note

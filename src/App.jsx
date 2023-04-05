@@ -6,6 +6,7 @@ import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import UserProvider from "./Context/UserContext.jsx";
 import Overlay from "./components/Overlay/Overlay.jsx";
+import NoteProvider from "./Context/NoteContext.jsx";
 
 let routes = createHashRouter([
   {
@@ -27,7 +28,9 @@ let routes = createHashRouter([
 function App() {
   return (
     <UserProvider>
-      <RouterProvider router={routes}></RouterProvider>
+      <NoteProvider>
+        <RouterProvider router={routes}></RouterProvider>
+      </NoteProvider>
     </UserProvider>
   );
 }

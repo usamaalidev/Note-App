@@ -4,21 +4,27 @@ import axios from "axios";
 import { useFormik } from "formik";
 import { UserContext } from "../../Context/UserContext.jsx";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function Overlay() {
   const { userInfo, token } = useContext(UserContext);
   const navigate = useNavigate();
   async function addNote(values) {
-    console.log({ values });
     let { data } = await axios.post(
       "https://sticky-note-fe.vercel.app/addNote",
       values
     );
 
-    console.log({ data });
-
     if (data.message == "success") {
-      navigate("/");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Note added successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        navigate("/");
+      });
     }
   }
 
