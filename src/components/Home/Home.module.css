@@ -13,3 +13,7 @@
       var(--number-of-notes)
   );
 }
+
+.empty {
+  height: calc(100vh - 100px);
+}

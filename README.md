@@ -21,6 +21,7 @@
 ### Home Page
 
 - [x] Display User Notes
+- [x] Addding Loading until data being displayed
 
 ### Add Note
 

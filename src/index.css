@@ -32,6 +32,8 @@ a:hover {
   color: inherit;
 }
 
+/* ^========> Custom Repeated Styles */
+
 .btn-main {
   --bs-btn-color: var(--white-900);
   --bs-btn-bg: var(--violet-700);

@@ -6,15 +6,17 @@ const token =
     .filter((str) => str.trim().includes("token"))[0]
     ?.split("=")[1] || null;
 
-const userInfo = document.cookie
-  .split(";")
-  .filter((str) => str.trim().includes("userData"))[0]
-  ?.split("=")[1];
+const userInfo = JSON.parse(
+  document.cookie
+    .split(";")
+    .filter((str) => str.trim().includes("userData"))[0]
+    ?.split("=")[1]
+);
 
 export async function getNotes(updater) {
   const userDetails = {
     token,
-    userID: JSON.parse(userInfo)._id,
+    userID: userInfo._id,
   };
 
   let { data } = await axios.post(
@@ -23,9 +25,11 @@ export async function getNotes(updater) {
   );
 
   console.log("%c### Your Notes 👇", "background-color: #e2a937; color: #fff");
-  console.log(data);
+  console.log(data.Notes);
   if (data.message === "success") {
     updater(data.Notes);
+  } else if (data.message === "no notes found") {
+    updater([]);
   }
 }
 
