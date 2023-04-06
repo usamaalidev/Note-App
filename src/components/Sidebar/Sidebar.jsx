@@ -7,7 +7,7 @@ export default function Sidebar() {
   const { logout } = useContext(UserContext);
   return (
     <>
-      <nav className={`${style.nav}`}>
+      <nav className={`${style.nav} shadow-sm`}>
         <Link to="/note" className="btn btn-main text-capitalize w-100 mb-3">
           <i className="fa-solid fa-plus me-2"></i>New Note
         </Link>

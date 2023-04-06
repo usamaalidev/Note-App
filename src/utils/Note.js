@@ -33,9 +33,9 @@ export async function getNotes(updater) {
   }
 }
 
-export async function deleteNote(e, updater) {
+export async function deleteNote(NoteID, updater) {
   const deletedNoteInfo = {
-    NoteID: e.target.closest(".note").dataset.id,
+    NoteID,
     token,
   };
 
@@ -50,12 +50,12 @@ export async function deleteNote(e, updater) {
   }
 }
 
-export async function updateNote(e, title, desc, updater) {
+export async function updateNote(NoteID, title, desc, updater) {
   const updatedDetails = {
     title,
     desc,
     token,
-    NoteID: e.target.closest(".note").dataset.id,
+    NoteID,
   };
   let { data } = await axios.put(
     "https://sticky-note-fe.vercel.app/updateNote",
@@ -65,7 +65,7 @@ export async function updateNote(e, title, desc, updater) {
   console.log(data);
 
   if (data.message == "updated") {
-    console.log("success");
+    console.log("UPDATED DONE ✅");
     getNotes(updater);
   }
 }

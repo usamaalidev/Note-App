@@ -32,6 +32,31 @@ a:hover {
   color: inherit;
 }
 
+/* ^========> Resetting Some Styles */
+.form-control:focus {
+  border-color: var(--violet-800);
+  box-shadow: none;
+}
+
+.swal2-input,
+.swal2-textarea {
+  font-size: 18px !important;
+}
+
+.swal2-input:focus,
+.swal2-textarea:focus {
+  border: 2px solid var(--violet-800) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.swal2-textarea {
+  max-height: 300px;
+}
+
+div:has(.note-title) {
+  text-align: left !important;
+}
 /* ^========> Custom Repeated Styles */
 
 .btn-main {
@@ -44,11 +69,6 @@ a:hover {
 
 .font-Montserrat {
   font-family: "Montserrat Alternates", sans-serif;
-}
-
-.form-control:focus {
-  border-color: var(--violet-800);
-  box-shadow: none;
 }
 
 .bg-main {
@@ -84,4 +104,8 @@ a:hover {
 
 .pointer {
   cursor: pointer;
+}
+
+.fit-content {
+  width: fit-content;
 }
