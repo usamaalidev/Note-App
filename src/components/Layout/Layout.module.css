@@ -3,12 +3,21 @@
 }
 
 .sidebar {
-  --column: 2;
-  width: calc(100% * var(--column) / 12);
+  --column: 3;
+  width: calc(100% * var(--column) / var(--layout));
+  transition: width 200ms;
+}
+
+.sidebar-mini {
+  width: 70px;
+  transition: width 350ms;
+}
+
+.sidebar-mini i {
+  margin: 0 !important;
 }
 
 .content {
-  --column: 10;
-  width: calc(100% * var(--column) / 12);
+  flex-grow: 1;
   padding: 15px;
 }

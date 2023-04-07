@@ -170,4 +170,6 @@ export function showUpdateForm({ token, userInfo, NoteID, PrevData, updater }) {
   });
 }
 
-export function checkDescriptionLength() {}
+export function checkDescriptionLength(description) {
+  return description.length > 150;
+}

@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
 import style from "./Sidebar.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext.jsx";
 import { NoteContext } from "../../Context/NoteContext.jsx";
 import { showAddForm } from "../../utils/Note.js";
 
-export default function Sidebar() {
+export default function Sidebar({ info }) {
   const { logout } = useContext(UserContext);
   const { setNotes } = useContext(NoteContext);
   const { token, userInfo } = useContext(UserContext);
+  const { isMinimized, setIsMinimized } = info;
+
+  // * true => mi
 
   return (
     <>
@@ -19,17 +22,20 @@ export default function Sidebar() {
             showAddForm({ token, userInfo, updater: setNotes });
           }}
         >
-          <i className="fa-solid fa-plus me-2"></i>New Note
+          <i className="fa-solid fa-plus me-2"></i>
+          {isMinimized ? null : "New Note"}
         </button>
         <ul className="list-unstyled">
           <li>
             <NavLink to="/">
-              <i className="bi bi-house-heart me-2"></i>Home
+              <i className="bi bi-house-heart me-2"></i>
+              {isMinimized ? null : "Home"}
             </NavLink>
           </li>
           <li>
             <NavLink to="/search">
-              <i className="bi bi-search me-2"></i>Search
+              <i className="bi bi-search me-2"></i>{" "}
+              {isMinimized ? null : "Search"}
             </NavLink>
           </li>
           <li>
@@ -39,10 +45,19 @@ export default function Sidebar() {
               }}
               className="pointer"
             >
-              <i className="bi bi-box-arrow-left me-2"></i>Log out
+              <i className="bi bi-box-arrow-left me-2"></i>{" "}
+              {isMinimized ? null : "Log Out"}
             </span>
           </li>
         </ul>
+        <div
+          className={`${style.change} shadow pointer`}
+          onClick={() => {
+            setIsMinimized(!isMinimized);
+          }}
+        >
+          <i className="fa-solid fa-bars-staggered"></i>
+        </div>
       </nav>
     </>
   );

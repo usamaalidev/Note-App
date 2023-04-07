@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import style from "./Note.module.css";
 import { NoteContext } from "../../Context/NoteContext.jsx";
 import { UserContext } from "../../Context/UserContext.jsx";
@@ -11,10 +11,12 @@ import {
 export default function Note({ noteInfo }) {
   const { setNotes } = useContext(NoteContext);
   const { token, userInfo } = useContext(UserContext);
-  const [noteStatus, setNoteStatus] = useState(checkDescriptionLength());
-
-  // !false ❌ => text does not exceed three lines => no ReadMore button
-  // *true ✅ => text exceed three lines => Read more button
+  const [noteStatus, setNoteStatus] = useState(
+    checkDescriptionLength(noteInfo.desc)
+  );
+  const [readMoreBtn, setReadMoreBtn] = useState(
+    checkDescriptionLength(noteInfo.desc)
+  );
 
   return (
     <>
@@ -26,14 +28,16 @@ export default function Note({ noteInfo }) {
           <p className={`mb-0 mt-2 ${noteStatus ? style["read-more"] : ""}`}>
             {noteInfo.desc}
           </p>
-          <button
-            className="btn btn-main mt-2"
-            onClick={() => {
-              setNoteStatus(!noteStatus);
-            }}
-          >
-            Read More
-          </button>
+          {readMoreBtn ? (
+            <button
+              className="btn btn-main mt-2"
+              onClick={() => {
+                setNoteStatus(!noteStatus);
+              }}
+            >
+              {noteStatus ? "Read More" : "Read Less"}
+            </button>
+          ) : null}
         </div>
 
         <div className="note-footer">

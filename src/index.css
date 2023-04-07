@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Zanabazar+Square&display=swap");
 :root {
+  /* ^ ====> Colors */
   --violet-900: #2f2569;
   --violet-800: #913bd3;
   --violet-700: #9a53d2;
@@ -12,6 +13,7 @@
   --white-900: #ffffff;
   --white-800: #f7f8fc;
   --white-700: #e5e8f1;
+  --white-600: #cfd2db;
 }
 
 body {

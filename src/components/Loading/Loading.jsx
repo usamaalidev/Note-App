@@ -4,7 +4,7 @@ import style from "./Loading.module.css";
 export default function Loading() {
   return (
     <>
-      <div className="vh-100 d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center">
         <div className={style["lds-facebook"]}>
           <div></div>
           <div></div>

@@ -9,7 +9,7 @@
 
 ### Sidebar
 
-- [ ] add minimize sidebar functionality.
+- [x] add minimize sidebar functionality.
 
 ### Login Page
 
@@ -24,13 +24,14 @@
 
 - [x] Display User Notes
 - [x] Addding Loading until data being displayed
+- [ ] Add drag and drop functionality to reorder Notes
 
 ### Add Note
 
 - [x] use Sweat Alert when added successfully.
 - [x] make description of note to be at most 3 lines.
 - [x] add read more functionality to each note.
-- [ ] add read more button only if text exceed 3 lines
+- [x] add read more button only if text exceed 3 lines
 - [x] Change Add page to SweatAlert.
 
 ### Delete Note

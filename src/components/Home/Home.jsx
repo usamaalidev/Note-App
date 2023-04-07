@@ -2,9 +2,8 @@ import React, { useContext, useEffect } from "react";
 import style from "./Home.module.css";
 import Note from "../Note/Note.jsx";
 import Loading from "../Loading/Loading.jsx";
-import { getNotes } from "../../utils/Note.js";
+import { getNotes, showAddForm } from "../../utils/Note.js";
 import { NoteContext } from "../../Context/NoteContext.jsx";
-import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext.jsx";
 
 export default function Home({}) {
@@ -35,12 +34,14 @@ export default function Home({}) {
               Your notes will appear here once you start creating them{" "}
               <i className="bi bi-stickies ms-2"></i>
             </h2>
-            <Link
-              to="/note"
+            <button
               className="btn btn-main fit-content text-capitalize my-3"
+              onClick={() => {
+                showAddForm({ token, userInfo, updater: setNotes });
+              }}
             >
               <i className="fa-solid fa-plus me-2"></i>New Note
-            </Link>
+            </button>
           </div>
         )
       ) : (
