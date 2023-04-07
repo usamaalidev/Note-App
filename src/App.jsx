@@ -5,7 +5,6 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import UserProvider from "./Context/UserContext.jsx";
-import Overlay from "./components/Overlay/Overlay.jsx";
 import NoteProvider from "./Context/NoteContext.jsx";
 
 let routes = createHashRouter([
@@ -16,10 +15,7 @@ let routes = createHashRouter([
         <Layout />
       </ProtectedRoute>
     ),
-    children: [
-      { index: true, element: <Home /> },
-      { path: "note", element: <Overlay /> },
-    ],
+    children: [{ index: true, element: <Home /> }],
   },
   { path: "login", element: <Login /> },
   { path: "signup", element: <Register /> },

@@ -19,7 +19,7 @@ export default function UserProvider({ children }) {
   const [token, setToken] = useState(savedToken);
   const [userInfo, setUserInfo] = useState(JSON.parse(savedUserData));
 
-  async function logout() {
+  async function logout({ setNotes }) {
     document.cookie.split(";").forEach(function (c) {
       document.cookie = c
         .replace(/^ +/, "")
@@ -27,6 +27,7 @@ export default function UserProvider({ children }) {
     });
     setToken(null);
     setUserInfo(null);
+    setNotes(null);
   }
 
   return (

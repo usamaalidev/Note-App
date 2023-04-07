@@ -5,12 +5,14 @@ import Loading from "../Loading/Loading.jsx";
 import { getNotes } from "../../utils/Note.js";
 import { NoteContext } from "../../Context/NoteContext.jsx";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext.jsx";
 
 export default function Home({}) {
+  const { token, userInfo } = useContext(UserContext);
   const { notes, setNotes } = useContext(NoteContext);
 
   useEffect(() => {
-    getNotes(setNotes);
+    getNotes({ token, userInfo, updater: setNotes });
   }, []);
 
   return (

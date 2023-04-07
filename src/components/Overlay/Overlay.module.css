@@ -1,8 +1,0 @@
-.overlay {
-  background-color: var(--violet-100);
-}
-
-.overlay textarea[class="form-control"] {
-  min-height: 150px;
-  max-height: 300px;
-}

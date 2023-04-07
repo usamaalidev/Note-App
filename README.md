@@ -15,7 +15,8 @@
 
 - [x] Fix Error of clicking twice to login.
 - [x] using cookies to store token to fix refresh bug.
-- [ ] fix bug of JSON.Parse() in Note.js
+- [x] fix bug of JSON.Parse() in Note.js
+- [x] when use log out and sign in with another account he must refresh to see his note other he see the previous user's Notes
 - [x] Register Page.
 - [x] Logout functionality.
 
@@ -29,7 +30,8 @@
 - [x] use Sweat Alert when added successfully.
 - [x] make description of note to be at most 3 lines.
 - [x] add read more functionality to each note.
-- [ ] Change Add page to SweatAlert.
+- [ ] add read more button only if text exceed 3 lines
+- [x] Change Add page to SweatAlert.
 
 ### Delete Note
 

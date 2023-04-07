@@ -1,19 +1,7 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
-const token =
-  document.cookie
-    .split(";")
-    .filter((str) => str.trim().includes("token"))[0]
-    ?.split("=")[1] || null;
-
-const userInfo = JSON.parse(
-  document.cookie
-    .split(";")
-    .filter((str) => str.trim().includes("userData"))[0]
-    ?.split("=")[1]
-);
-
-export async function getNotes(updater) {
+export async function getNotes({ token, userInfo, updater }) {
   const userDetails = {
     token,
     userID: userInfo._id,
@@ -33,7 +21,27 @@ export async function getNotes(updater) {
   }
 }
 
-export async function deleteNote(NoteID, updater) {
+export async function addNote({ token, userInfo, updater, noteContent }) {
+  let { data } = await axios.post("https://sticky-note-fe.vercel.app/addNote", {
+    token,
+    citizenID: userInfo._id,
+    ...noteContent,
+  });
+
+  if (data.message == "success") {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Note added successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      getNotes({ token, userInfo, updater });
+    });
+  }
+}
+
+export async function deleteNote({ token, userInfo, NoteID, updater }) {
   const deletedNoteInfo = {
     NoteID,
     token,
@@ -46,14 +54,21 @@ export async function deleteNote(NoteID, updater) {
 
   if (data.message == "deleted") {
     console.log("success");
-    getNotes(updater);
+    getNotes({ token, userInfo, updater });
   }
 }
 
-export async function updateNote(NoteID, title, desc, updater) {
+export async function updateNote({
+  token,
+  userInfo,
+  NoteID,
+  title,
+  description,
+  updater,
+}) {
   const updatedDetails = {
     title,
-    desc,
+    desc: description,
     token,
     NoteID,
   };
@@ -66,6 +81,93 @@ export async function updateNote(NoteID, title, desc, updater) {
 
   if (data.message == "updated") {
     console.log("UPDATED DONE ✅");
-    getNotes(updater);
+    getNotes({ token, userInfo, updater });
   }
 }
+
+export async function showAddForm({ token, userInfo, updater }) {
+  Swal.fire({
+    title: "Create a New Note 📝",
+    html: `
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" placeholder="Title" class="note-title swal2-input m-0 w-100 d-block"/>
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" id="description" placeholder="Description" class="swal2-textarea m-0 w-100 d-block"></textarea>
+    `,
+    showCancelButton: true,
+    confirmButtonText: "Add Note",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      const title = document.getElementById("title");
+      const description = document.getElementById("description");
+      return { title: title.value, desc: description.value };
+    },
+    allowOutsideClick: () => !Swal.isLoading(),
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const { title, desc } = result.value;
+      addNote({ token, userInfo, updater, noteContent: { title, desc } });
+    }
+  });
+}
+
+export function showDeleteAlert({ token, userInfo, NoteID, updater }) {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#913bd3",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      deleteNote({ token, userInfo, NoteID, updater });
+      Swal.fire("Deleted!", "Your Note has been deleted.", "success");
+    }
+  });
+}
+
+export function showUpdateForm({ token, userInfo, NoteID, PrevData, updater }) {
+  Swal.fire({
+    title: "Update Your Note 😁",
+    html: `
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" value="${PrevData.title}" class="note-title swal2-input m-0 w-100 d-block"/>
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" id="description" class="swal2-textarea m-0 w-100 d-block">${PrevData.desc}</textarea>
+    `,
+    showCancelButton: true,
+    confirmButtonText: "Update Note",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      const title = document.getElementById("title");
+      const description = document.getElementById("description");
+      return { title: title.value, description: description.value };
+    },
+    allowOutsideClick: () => !Swal.isLoading(),
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const { title, description } = result.value;
+
+      updateNote({
+        token,
+        userInfo,
+        NoteID,
+        title,
+        description,
+        updater,
+      });
+
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Update successful! Your note has been saved.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  });
+}
+
+export function checkDescriptionLength() {}

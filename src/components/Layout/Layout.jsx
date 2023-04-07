@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Layout.module.css";
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import { Outlet } from "react-router-dom";
