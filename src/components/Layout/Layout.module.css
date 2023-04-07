@@ -3,7 +3,7 @@
 }
 
 .sidebar {
-  --column: 3;
+  --column: 2;
   width: calc(100% * var(--column) / var(--layout));
   transition: width 200ms;
 }
