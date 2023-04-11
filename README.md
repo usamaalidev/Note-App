@@ -1,45 +1,58 @@
-# Note-App
+## Note App
 
-## Task List
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-### Project Structure
+## Features
 
-- [x] Editing Project Structure.
-- [x] seperate logic outside Components.
+- User authentication with sign up and login functionality
+- Note-taking capability with ability to add, update, and delete notes
+- Read more/less button to allow users to expand/collapse note content
+- Sidebar with ability to minimize and maximize for improved user experience
 
-### Sidebar
+## Demo
 
-- [x] add minimize sidebar functionality.
+Live Demo: https://usamaalidev.github.io/Note-App/
 
-### Login Page
+## Run Locally
 
-- [x] Fix Error of clicking twice to login.
-- [x] using cookies to store token to fix refresh bug.
-- [x] fix bug of JSON.Parse() in Note.js
-- [x] when use log out and sign in with another account he must refresh to see his note other he see the previous user's Notes
-- [x] Register Page.
-- [x] Logout functionality.
-- [x] Save user preferences.
+Clone the project
 
-### Home Page
+```bash
+  git clone https://link-to-project
+```
 
-- [x] Display User Notes
-- [x] Addding Loading until data being displayed
+Go to the project directory
 
-### Add Note
+```bash
+  cd my-project
+```
 
-- [x] use Sweat Alert when added successfully.
-- [x] make description of note to be at most 3 lines.
-- [x] add read more functionality to each note.
-- [x] add read more button only if text exceed 3 lines
-- [x] Change Add page to SweatAlert.
+Install dependencies
 
-### Delete Note
+```bash
+  npm install
+```
 
-- [x] Delete at once without need to refresh.
-- [x] Show alert before Deleting.
+Start the server
 
-### Update Note
+```bash
+  npm run start
+```
 
-- [x] add update functionality with sweatAlert
-- [x] when updated and description exceed 3 lines READ MORE button do not appear and vice versa.
+## Screenshots
+
+![App Screenshot](https://i.postimg.cc/zvyQkNgR/7.png)
+![App Screenshot](https://i.postimg.cc/507Gvy6V/6.png)
+![App Screenshot](https://i.postimg.cc/D009Yst0/1.png)
+![App Screenshot](https://i.postimg.cc/05HRKWww/2.png)
+![App Screenshot](https://i.postimg.cc/x1MW79Fv/3.png)
+![App Screenshot](https://i.postimg.cc/LsSrFGrr/4.png)
+![App Screenshot](https://i.postimg.cc/CLW3mRJM/5.png)
+
+## Feedback
+
+If you have any feedback, please reach out to us at usama.route@gmail.com
+
+## Links
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
