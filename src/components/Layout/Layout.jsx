@@ -4,7 +4,12 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 
 export default function Layout() {
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(
+    JSON.parse(localStorage.getItem("isMinimized")) || false
+  );
+
+  console.log({ isMinimized });
+
   return (
     <>
       <div className="d-flex min-vh-100 align-items-stretch">
@@ -15,6 +20,7 @@ export default function Layout() {
         >
           <Sidebar info={{ isMinimized, setIsMinimized }} />
         </div>
+
         <div className={`${style.content}`}>
           <Outlet />
         </div>

@@ -53,9 +53,11 @@ export default function Note({ noteInfo }) {
                   desc: noteInfo.desc,
                 },
                 updater: setNotes,
+                helpers: { setNoteStatus, setReadMoreBtn },
               });
             }}
           ></i>
+
           <i
             className="bi bi-archive-fill pointer"
             onClick={() => {

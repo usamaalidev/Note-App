@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import style from "./Sidebar.module.css";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext.jsx";
@@ -11,8 +11,9 @@ export default function Sidebar({ info }) {
   const { token, userInfo } = useContext(UserContext);
   const { isMinimized, setIsMinimized } = info;
 
-  // * true => mi
+  localStorage.setItem("isMinimized", isMinimized);
 
+  useEffect(() => {}, [isMinimized]);
   return (
     <>
       <nav className={`${style.nav} shadow-sm`}>
@@ -45,7 +46,8 @@ export default function Sidebar({ info }) {
               }}
               className="pointer"
             >
-              <i className="bi bi-box-arrow-left me-2"></i>{" "}
+              <i className="bi bi-box-arrow-left me-2"></i>
+
               {isMinimized ? null : "Log Out"}
             </span>
           </li>
@@ -56,7 +58,11 @@ export default function Sidebar({ info }) {
             setIsMinimized(!isMinimized);
           }}
         >
-          <i className="fa-solid fa-bars-staggered"></i>
+          <i
+            className={`fa-solid ${
+              isMinimized ? "fa-chevron-right" : "fa-chevron-left"
+            }`}
+          ></i>
         </div>
       </nav>
     </>

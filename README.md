@@ -19,12 +19,12 @@
 - [x] when use log out and sign in with another account he must refresh to see his note other he see the previous user's Notes
 - [x] Register Page.
 - [x] Logout functionality.
+- [x] Save user preferences.
 
 ### Home Page
 
 - [x] Display User Notes
 - [x] Addding Loading until data being displayed
-- [ ] Add drag and drop functionality to reorder Notes
 
 ### Add Note
 
@@ -42,3 +42,4 @@
 ### Update Note
 
 - [x] add update functionality with sweatAlert
+- [x] when updated and description exceed 3 lines READ MORE button do not appear and vice versa.

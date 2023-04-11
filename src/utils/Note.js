@@ -65,6 +65,7 @@ export async function updateNote({
   title,
   description,
   updater,
+  helpers,
 }) {
   const updatedDetails = {
     title,
@@ -82,6 +83,8 @@ export async function updateNote({
   if (data.message == "updated") {
     console.log("UPDATED DONE ✅");
     getNotes({ token, userInfo, updater });
+    helpers.setNoteStatus(() => checkDescriptionLength(updatedDetails.desc));
+    helpers.setReadMoreBtn(() => checkDescriptionLength(updatedDetails.desc));
   }
 }
 
@@ -128,7 +131,14 @@ export function showDeleteAlert({ token, userInfo, NoteID, updater }) {
   });
 }
 
-export function showUpdateForm({ token, userInfo, NoteID, PrevData, updater }) {
+export function showUpdateForm({
+  token,
+  userInfo,
+  NoteID,
+  PrevData,
+  updater,
+  helpers,
+}) {
   Swal.fire({
     title: "Update Your Note 😁",
     html: `
@@ -157,6 +167,7 @@ export function showUpdateForm({ token, userInfo, NoteID, PrevData, updater }) {
         title,
         description,
         updater,
+        helpers,
       });
 
       Swal.fire({
