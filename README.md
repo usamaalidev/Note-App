@@ -41,12 +41,32 @@ Start the server
 
 ## Screenshots
 
+### Registeration Page
+
 ![Sign Up Page](src/assets/screenshots/7.png)
+
+### Login Page
+
 ![Login Page](src/assets/screenshots/6.png)
+
+### Home Page with sidebar collapsed
+
 ![Home page with sidebar collapsed](src/assets/screenshots/1.png)
+
+### Home Page with sidebar opened
+
 ![Home page with sidebar opened](src/assets/screenshots/5.png)
+
+### Create a New Note modal
+
 ![Create a New Note modal](src/assets/screenshots/2.png)
+
+### Delete Note Alert
+
 ![Delete Note Alert](src/assets/screenshots/3.png)
+
+### Update Note modal
+
 ![Update Note modal](src/assets/screenshots/4.png)
 
 ## Feedback
