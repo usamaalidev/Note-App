@@ -41,13 +41,13 @@ Start the server
 
 ## Screenshots
 
-![Sign Up Page](https://i.postimg.cc/zvyQkNgR/7.png)
-![Login Page](https://i.postimg.cc/507Gvy6V/6.png)
-![Home page with sidebar collapsed](https://i.postimg.cc/D009Yst0/1.png)
-![Home page with sidebar opened](https://i.postimg.cc/CLW3mRJM/5.png)
-![Create a New Note modal](https://i.postimg.cc/05HRKWww/2.png)
-![Delete Note Alert](https://i.postimg.cc/x1MW79Fv/3.png)
-![Update Note modal](https://i.postimg.cc/LsSrFGrr/4.png)
+![Sign Up Page](src/assets/screenshots/7.png)
+![Login Page](src/assets/screenshots/6.png)
+![Home page with sidebar collapsed](src/assets/screenshots/1.png)
+![Home page with sidebar opened](src/assets/screenshots/5.png)
+![Create a New Note modal](src/assets/screenshots/2.png)
+![Delete Note Alert](src/assets/screenshots/3.png)
+![Update Note modal](src/assets/screenshots/4.png)
 
 ## Feedback
 
