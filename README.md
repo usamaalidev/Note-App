@@ -41,13 +41,13 @@ Start the server
 
 ## Screenshots
 
-![App Screenshot](https://i.postimg.cc/zvyQkNgR/7.png)
-![App Screenshot](https://i.postimg.cc/507Gvy6V/6.png)
-![App Screenshot](https://i.postimg.cc/D009Yst0/1.png)
-![App Screenshot](https://i.postimg.cc/05HRKWww/2.png)
-![App Screenshot](https://i.postimg.cc/x1MW79Fv/3.png)
-![App Screenshot](https://i.postimg.cc/LsSrFGrr/4.png)
-![App Screenshot](https://i.postimg.cc/CLW3mRJM/5.png)
+![Sign Up Page](https://i.postimg.cc/zvyQkNgR/7.png)
+![Login Page](https://i.postimg.cc/507Gvy6V/6.png)
+![Home page with sidebar collapsed](https://i.postimg.cc/D009Yst0/1.png)
+![Home page with sidebar opened](https://i.postimg.cc/CLW3mRJM/5.png)
+![Create a New Note modal](https://i.postimg.cc/05HRKWww/2.png)
+![Delete Note Alert](https://i.postimg.cc/x1MW79Fv/3.png)
+![Update Note modal](https://i.postimg.cc/LsSrFGrr/4.png)
 
 ## Feedback
 
@@ -55,4 +55,4 @@ If you have any feedback, please reach out to us at usama.route@gmail.com
 
 ## Links
 
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/usamaali-dev/)
