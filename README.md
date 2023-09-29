@@ -8,6 +8,7 @@
 - Note-taking capability with ability to add, update, and delete notes
 - Read more/less button to allow users to expand/collapse note content
 - Sidebar with ability to minimize and maximize for improved user experience
+  - responsive sidebar
 
 ## Demo
 
